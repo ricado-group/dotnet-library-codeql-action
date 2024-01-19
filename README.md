@@ -1,5 +1,5 @@
 # .NET Library CodeQL Action
-A Composite Action that runs CodeQL to Analyze a .NET 6/7 Library
+A Composite Action that runs CodeQL to Analyze a .NET 8 Library
 
 ## Inputs
 
