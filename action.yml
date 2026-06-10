@@ -1,5 +1,5 @@
 name: '.NET Library CodeQL'
-description: 'A Composite Action that runs CodeQL to Analyze a .NET 8 Library'
+description: 'A Composite Action that runs CodeQL to Analyze a .NET 10 Library'
 author: 'RICADO'
 branding:
   icon: 'link'
@@ -17,27 +17,27 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    # Step 1 - Initialize CodeQL
+    # Initialize CodeQL
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
+      uses: github/codeql-action/init@v4
       with:
         languages: csharp
         queries: security-and-quality
     
-    # Step 2 - Setup .NET 8 with GitHub Packages Authentication
-    - name: Setup .NET 8 with GitHub Packages Authentication
-      uses: actions/setup-dotnet@v4
+    # Setup .NET 10 with GitHub Packages Authentication
+    - name: Setup .NET 10 with GitHub Packages Authentication
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: |
-          8.0.x
+          10.0.x
         source-url: ${{ inputs.private-nuget-url }}
       env:
         NUGET_AUTH_TOKEN: ${{ inputs.private-nuget-token }}
     
-    # Step 3 - Build the Library
+    # Build the Library
     - name: Run CodeQL Autobuild
-      uses: github/codeql-action/autobuild@v3
+      uses: github/codeql-action/autobuild@v4
     
-    # Step 4 - Perform CodeQL Analysis
+    # Perform CodeQL Analysis
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
+      uses: github/codeql-action/analyze@v4
