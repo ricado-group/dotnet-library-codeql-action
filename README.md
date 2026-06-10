@@ -1,5 +1,5 @@
 # .NET Library CodeQL Action
-A Composite Action that runs CodeQL to Analyze a .NET 8 Library
+A Composite Action that runs CodeQL to Analyze a .NET 10 Library
 
 ## Inputs
 
@@ -14,7 +14,7 @@ A Composite Action that runs CodeQL to Analyze a .NET 8 Library
 ## Example Usage
 
 ```yml
-uses: ricado-group/dotnet-library-codeql-action@v1
+uses: ricado-group/dotnet-library-codeql-action@v2
 with:
   private-nuget-url: 'https://nuget.pkg.github.com/myname/index.json'
   private-nuget-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
